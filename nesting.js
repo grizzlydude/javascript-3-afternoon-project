@@ -50,17 +50,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-function employeeUpdater(){
-  for (let i = 0; i < employees.length; i++){
-    for (let j = 0; j < employees.length; j++){
-      if (employees.firstName == 'Theo'){
-        employees.splice(i, 1)  
-      }
-      if (employees.firstName == 'Lorie'){
-        employees['department'] = HR
-      }
+function employeeUpdater() {
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].firstName == 'Theo') {
+      employees.splice(i, 1)
+    }
+    if (employees[i].firstName == 'Lorie') {
+      employees[i].department = 'HR'
     }
   }
+  return employees
 }
 
 
@@ -79,7 +78,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
+function removeDuplicates() {
+  for (let i in workplaceAccidents) {
+    for (let j in workplaceAccidents) {
+      if (workplaceAccidents[i] === workplaceAccidents[j] && i !== j) {
+        workplaceAccidents.splice(i, 1)
+      }
+    }
+  }
+  return workplaceAccidents
+}
 
 
 
@@ -92,14 +100,16 @@ var cat = {
     {
       name: 'Grumpy',
       activities: ['be grumpy', 'eat food']
-    }, 
+    },
     {
       name: 'Lazy Bones',
       activities: ['sleep', 'pre-sleep naps']
     }
   ]
 }
+
 // Do not edit the code above.
+
 
 /*
   Fluffy has two friends, Grumpy and Lazy Bones. 
@@ -108,8 +118,15 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity
+var fluffy2ndFriend = cat.catFriends[1].name
+
+for (let friend of cat.catFriends) {
+  if (friend.name === 'Grumpy') {
+    grumpyActivity = friend.activities[1]
+  }
+}
+
 
 
 
@@ -149,25 +166,43 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner() {
+  for (let record of myCar.accidents) {
+    if (record.atFaultForAccident){
+      record.atFaultForAccident = false
+    }
+  }
+}
 
 
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [[1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 // Do not edit the code above.
 
 /*
   Above is an array of arrays. Use two for loops.
-    1. Write a function called 'looper'. 
+    1. Write a function called 'looper'.
     2. 'looper' should loop over the arrays.
     3.  If the number is odd, replace it with 'odd'.
         If the number is even, replace it with 'even'.
     4. Return the modified numsArr.
 */
 
-//Code Here
+function looper(){
+  for (let i = 0; i < numsArr.length; i++){
+    for (let j = 0; j < numsArr[i].length; j++){
+      if (numsArr[i][j] % 2 === 0) {
+        numsArr[i][j] = 'even'
+      }
+      else {
+        numsArr[i][j] = "odd"
+      }
+    }
+  }
+  return numsArr
+}
 
 
